@@ -67,7 +67,6 @@ n_perilaku = []
 sb1 = selisih_bobot[0]
 sb2 = selisih_bobot[1]
 for i in range(len(val_kecerdasan)):
-	n_kecerdasan.append([])
 	n_k = diff_kecerdasan[i]
 	n = 0
 	for j in cf_kecerdasan:
@@ -81,10 +80,9 @@ for i in range(len(val_kecerdasan)):
 		m = sb2[sb1.index(l)]
 		n += m
 		sf = n / len(sf_kecerdasan)
-	n_kecerdasan[i].append((cf*ni_cf)+(sf*ni_sf))
+	n_kecerdasan.append((cf*ni_cf)+(sf*ni_sf))
 
 for i in range(len(val_kinerja)):
-	n_kinerja.append([])
 	n_k = diff_kinerja[i]
 	n = 0
 	for j in cf_kinerja:
@@ -98,10 +96,9 @@ for i in range(len(val_kinerja)):
 		m = sb2[sb1.index(l)]
 		n += m
 		sf = n / len(sf_kinerja)
-	n_kinerja[i].append((cf*ni_cf)+(sf*ni_sf))
+	n_kinerja.append((cf*ni_cf)+(sf*ni_sf))
 
 for i in range(len(val_perilaku)):
-	n_perilaku.append([])
 	n_k = diff_perilaku[i]
 	n = 0
 	for j in cf_perilaku:
@@ -115,14 +112,10 @@ for i in range(len(val_perilaku)):
 		m = sb2[sb1.index(l)]
 		n += m
 		sf = n / len(sf_perilaku)
-	n_perilaku[i].append((cf*ni_cf)+(sf*ni_sf))
+	n_perilaku.append((cf*ni_cf)+(sf*ni_sf))
 
 #===================== rangking
 result = []
 for i in range(len(val_kecerdasan)):
-	nke = n_kecerdasan[i]
-	nki = n_kinerja[i]
-	npe = n_perilaku[i]
-	for j in range(len(nke)):
-		result.append((nke[j]*nr_kecerdasan)+(nki[j]*nr_kinerja)+(npe[j]*nr_perilaku))
+	result.append([(n_kecerdasan[i] * nr_kecerdasan)+(n_kinerja[i] * nr_kinerja)+(n_perilaku[i] * nr_perilaku),'Orang'+str(i+1)])
 print(result)
